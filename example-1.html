@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <input id="inputColorChange" onkeyup="validate(event)" onclick="handleClick(event)">
+</body>
+<script>
+    const validate = (event) => {
+        const result = event.target.value.trim() == "";
+        event.target.style.backgroundColor = result ? 'green' : 'red'
+        event.target.style.color = result ? 'black' : 'white'
+    }
+
+    const handleClick = (event)=>{
+        console.log('handleClick : ', event)
+    }
+</script>
+
+</html>
