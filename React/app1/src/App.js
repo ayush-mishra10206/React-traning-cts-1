@@ -7,8 +7,8 @@ function App() { // constructor function
     <div className="App">
       <header className="App-header">
        <OrderForm name="abc" ></OrderForm>
-       <OrderForm name="bcd" ></OrderForm>
-       <OrderForm name="bcd" ></OrderForm>
+       {/* <OrderForm name="bcd" ></OrderForm> */}
+       {/* <OrderForm name="bcd" ></OrderForm> */}
       </header>
     </div>
   );
