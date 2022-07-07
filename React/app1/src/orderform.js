@@ -16,7 +16,8 @@ export default function OrderForm(props) {
         if (order.tax < 0 || order.price < 0) {
             return "wrong"
         }
-        return parseInt(order.price) * (1 + (order.tax / 100));
+        const newAmount = parseInt(order.price) * (1 + (order.tax / 100)) 
+        return typeof newAmount === undefined?0:newAmount ;
     }
     function checkingSpreadOperator() {
         const first = [7, 3, 12];
@@ -26,10 +27,10 @@ export default function OrderForm(props) {
     }
     return (
         <div className="container">
-            <label className="header">Order form</label>
+            <label className="header">ORDER FORM</label>
             <div className="row">
                 <div className="col-25">
-                    <label >item</label>
+                    <label >Item</label>
                 </div>
                 <div className="col-75">
                     <input value={order.item} id="text" type="text" name='item' onChange={updateValue} />
@@ -37,7 +38,7 @@ export default function OrderForm(props) {
             </div>
             <div className="row">
                 <div className="col-25">
-                    <label >price</label>
+                    <label >Price</label>
                 </div>
                 <div className="col-75">
                     <input value={order.price} id="price" type="text" name='price' onChange={updateValue} />
@@ -45,18 +46,18 @@ export default function OrderForm(props) {
             </div>
             <div className="row">
                 <div className="col-25">
-                    <label >tax</label>
+                    <label >Tax</label>
                 </div>
                 <div className="col-75">
-                    <input value={order.tax} id="tex" min="0" max="100" type="range" name='tax' onChange={updateValue} />
+                    <label>0</label><input value={order.tax} id="tax" min="0" max="100" type="range" name='tax' onChange={updateValue} /><label>100</label>
                 </div>
             </div>
             <div className="row">
                 <div className="col-25">
-                    <label >Total</label>
+                    <label >Total Price After Including Tax  </label>
                 </div>
                 <div className="col-75">
-                    {calculate()}
+                  <label>  {calculate()}</label>
                 </div>
             </div>
             <div>
