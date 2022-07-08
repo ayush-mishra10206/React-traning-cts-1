@@ -1,0 +1,27 @@
+.innerContainer{
+    height: 50px;
+    width: 100px;
+    background-color: red; 
+}
+.cell{
+    border: '1px solid black';
+    float: left;
+    width: 20%;
+}
+.cell1{
+    background-color: red;
+}
+
+table {
+    border: 2px solid forestgreen;
+    width: 800px;
+    height: 200px;
+  }
+    
+  th {
+    border-bottom: 1px solid black;
+  }
+    
+  td {
+    text-align: center;
+  }
