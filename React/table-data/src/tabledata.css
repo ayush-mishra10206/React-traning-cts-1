@@ -1,27 +1,38 @@
-.innerContainer{
-    height: 50px;
-    width: 100px;
-    background-color: red; 
+* {
+    margin:5px;
 }
-.cell{
-    border: '1px solid black';
-    float: left;
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    width:20%
+}
+#inputAlbumId {
+    padding: 10px;
+}
+.button{
+    padding: 5px;
     width: 20%;
+    background-color: green;
+    border-radius: 10px;
+    font-size: 15px;
 }
-.cell1{
-    background-color: red;
-}
+  table,td {
+      border:1px solid;
+  }
+  table{
+      border-collapse: collapse;
+      width:100%;
+  }
+  thead{
+    background-color: #04AA6D;
+  }
+  td{
+      padding:10px
+  }
 
-table {
-    border: 2px solid forestgreen;
-    width: 800px;
-    height: 200px;
-  }
-    
-  th {
-    border-bottom: 1px solid black;
-  }
-    
-  td {
-    text-align: center;
-  }
+  tbody tr{
+      background-color: #f2f2f2;
+    }
+   tbody tr:hover {
+       background-color: #ddd;
+    }

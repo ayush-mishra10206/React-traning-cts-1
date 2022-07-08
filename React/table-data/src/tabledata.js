@@ -2,86 +2,63 @@ import { useState } from 'react';
 import './tabledata.css';
 
 export default function TableData() {
-    let [photos, setPhotos] = useState([]);
-    
-    if(!photos.length){
+    let [photos, setPhotos] = useState({
+        photoData: [],
+        newAlbumId: "",
+    });
+
+    if (!photos.photoData.length) {
         getAlbum();
     }
 
-    async function getAlbum() {
-        // fetch('https://jsonplaceholder.typicode.com/photos').then(response => {
-        //     response.json().then(res => {
-        //         setPhotoData({ photoDatas: res.splice(0, 20) })
-        //     })
-        // });
-        let photos = await (await fetch('https://jsonplaceholder.typicode.com/photos?_page=1')).json();
-        console.log('photo : ', photos);
-        setPhotos(photos)
+    async function getAlbum(isButtonClicked = false) {
+        let photosList = []
+        if (isButtonClicked) {
+            photosList = await (await fetch('https://jsonplaceholder.typicode.com/photos?_page=1&&'+'&&albumId='+parseInt(photos.newAlbumId))).json();
+        }
+        else {
+            photosList = await (await fetch('https://jsonplaceholder.typicode.com/photos?_page=1')).json();
+
+        }
+        setPhotos({ ...photos, photoData: photosList })
     }
 
-    function displayData() {
-        // return records.photoDatas.map(data => {
-        //     // console.log('data', data)
-        //     return <div>
-        //         <div className="cell cell1">
-        //             album id {data.albumId}
-        //         </div>
-        //         <div className="cell">
-        //             id  {data.id}
-        //         </div>
-        //         <div className="cell">
-        //             {data.thumbnailUrl}
-        //         </div>
-        //         <div className="cell">
-        //             {data.title}
-        //         </div>
-        //         <div className="cell">
-        //             {data.url}
-        //         </div>
-        //     </div >
-        // });
-        return
 
-        // });
+    function onChangeInputAlbumId(event) {
+        setPhotos({ ...photos, [event.target.name]: event.target.value })
     }
-
 
     return (
         <div className='outerContainer'>
-            {/* {
-                records.photoDatas === 0 && fetchData()
-            } */}
-            {/* <table>
-                <tr></tr>
-            </table> */}
-            {/* {
-                records.photoDatas !== 0 && displayData()
-            } */}
-             <table>
+            <div className="inputContainer">
+                <input onChange={onChangeInputAlbumId} placeholder="enter Album Id " name="newAlbumId" value={photos.newAlbumId} id="inputAlbumId" />
+                <button className="button" onClick={()=>getAlbum(true)}>Click</button>
+            </div>
+            <table>
                 <thead>
                     <tr>
-                    <td>AlbumId </td>
-                    <td>Id</td>
-                    <td>ThubnailUrl</td>
-                    <td>Title</td>
-                    <td>Url</td>
+                        <td>AlbumId </td>
+                        <td>Id</td>
+                        <td>ThumbnailUrl</td>
+                        <td>Title</td>
+                        <td>Url</td>
                     </tr>
                 </thead>
                 <tbody>
-            {
-                photos.map(photo=>{
-                    return (
-                        <tr>
-                            <td>{photo.albumId}</td>
-                            <td>{photo.id}</td>
-                            <td>{photo.thumbnailUrl}</td>
-                            <td>{photo.title}</td>
-                            <td>{photo.url}</td>
-                        </tr>
-                    )
-                })
-            }
-            </tbody>
+                    {
+                        photos.photoData.map(photo => {
+                            return (
+                                <tr>
+                                    <td>{photo.albumId}</td>
+                                    <td>{photo.id}</td>
+                                    <td><a href={photo.thumbnailUrl}>click</a></td>
+                                    <td>{photo.title}</td>
+                                    <td><a href={photo.url}>click</a></td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
             </table>
         </div>
     )
