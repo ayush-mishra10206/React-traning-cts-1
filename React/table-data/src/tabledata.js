@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Counter from './Counter';
 import './tabledata.css';
 
 export default function TableData() {
@@ -8,13 +9,13 @@ export default function TableData() {
     });
 
     if (!photos.photoData.length) {
-        getAlbum();
+        // getAlbum();
     }
 
     async function getAlbum(isButtonClicked = false) {
         let photosList = []
         if (isButtonClicked) {
-            photosList = await (await fetch('https://jsonplaceholder.typicode.com/photos?_page=1&&'+'&&albumId='+parseInt(photos.newAlbumId))).json();
+            photosList = await (await fetch('https://jsonplaceholder.typicode.com/photos?_page=1&'+'albumId='+parseInt(photos.newAlbumId))).json();
         }
         else {
             photosList = await (await fetch('https://jsonplaceholder.typicode.com/photos?_page=1')).json();
@@ -30,6 +31,7 @@ export default function TableData() {
 
     return (
         <div className='outerContainer'>
+            <Counter count={photos.photoData.length}/>
             <div className="inputContainer">
                 <input onChange={onChangeInputAlbumId} placeholder="enter Album Id " name="newAlbumId" value={photos.newAlbumId} id="inputAlbumId" />
                 <button className="button" onClick={()=>getAlbum(true)}>Click</button>
@@ -48,7 +50,7 @@ export default function TableData() {
                     {
                         photos.photoData.map(photo => {
                             return (
-                                <tr>
+                                <tr key={photo.id}>
                                     <td>{photo.albumId}</td>
                                     <td>{photo.id}</td>
                                     <td><a href={photo.thumbnailUrl}>click</a></td>
