@@ -1,0 +1,42 @@
+*{
+    margin: 20px;
+    box-sizing: border-box;
+}
+.outerContainer{
+    border:1px solid red;
+    background-color: darkgrey;
+}
+.header{
+    font-size: 35px;
+    font-weight: bold;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.col-25{
+    padding-top: 20px;
+    width: 20%;
+    font-size: 20px;
+    font-weight: bold;
+}
+.inputField{
+    padding: 5px;
+    width: 120%;
+    border-radius: 10px;
+}
+.errorMessage{
+    color: red;
+    margin-left: 60px;
+    font-size: 20px;
+}
+
+
