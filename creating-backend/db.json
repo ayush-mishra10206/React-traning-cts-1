@@ -1,39 +1,18 @@
 {
-  "orders": [
+  "orders": [],
+  "category": [],
+  "userData": [
     {
-      "category_id": "19",
+      "emailId": "ayush@gmail.com",
+      "passWord": "1234",
+      "confirmPassword": "1234",
       "id": 1
     },
     {
-      "category_id": "19",
+      "emailId": "mishra@gmail.com",
+      "passWord": "3456",
+      "confirmPassword": "3456",
       "id": 2
-    },
-    {
-      "category_id": "19",
-      "id": 3
-    },
-    {
-      "category_id": "19",
-      "id": 4
-    },
-    {
-      "item": "laptop",
-      "id": 5
-    },
-    {
-      "item": "iphone",
-      "price": "450",
-      "id": 6
-    }
-  ],
-  "category": [
-    {
-      "label": "toy",
-      "id": 18
-    },
-    {
-      "label": "apprael",
-      "id": 19
     }
   ]
 }

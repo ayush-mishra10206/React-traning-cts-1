@@ -4,7 +4,7 @@
 }
 .outerContainer{
     border:1px solid red;
-    background-color: darkgrey;
+    background-color: grey;
 }
 .header{
     font-size: 35px;
@@ -12,21 +12,24 @@
     display: flex;
   justify-content: center;
   align-items: center;
+  border:1px solid red;
 }
-.row:after {
+/* .row:after {
     content: "";
     display: table;
     clear: both;
-  }
+  } */
 .row{
     display: flex;
     flex-direction: row;
+    border:1px solid red;
 }
 .col-25{
     padding-top: 20px;
     width: 20%;
     font-size: 20px;
-    font-weight: bold;
+    color: hsla(100,0%,0%,.9);
+    border:2px solid red;
 }
 .inputField{
     padding: 5px;
@@ -37,6 +40,15 @@
     color: red;
     margin-left: 60px;
     font-size: 20px;
+}
+.submitButton{
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 20%;
+    letter-spacing: 2px;
+}
+.submitButton:hover{
+  opacity: 0.3;
 }
 
 

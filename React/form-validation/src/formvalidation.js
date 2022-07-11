@@ -15,6 +15,30 @@ export default function FormValidation(props) {
         })
     }
 
+    function onSubmitData(){
+        console.log('password : ', userData.passWord);
+        console.log('password : ', userData.confirmPassword);
+        const payload = {
+            emailId:userData.emailId,
+            passWord:userData.passWord,
+            confirmPassword:userData.confirmPassword
+        }
+        if((userData.emailId ===""|| userData.confirmPassword ==="" || userData.passWord === "" )){
+            return;
+        }
+        if(userData.passWord !== userData.confirmPassword){
+            return;
+        }
+
+        fetch("http://localhost:3000/userData",{
+            method:'POST',
+            body:JSON.stringify(payload),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+    }
+
     return (
         <div className="outerContainer">
             <div className="header">
@@ -44,6 +68,7 @@ export default function FormValidation(props) {
                     <input className='inputField' value={userData.confirmPassword} type="password" name="confirmPassword" onChange={onChangeUserData}></input>
                 </div>
             </div>
+            <button className="submitButton" onClick={onSubmitData}>Submit</button>
             {
                 userData.passWord !== userData.confirmPassword ? <div className='errorMessage'>
                     Password and confirm password did not matched
