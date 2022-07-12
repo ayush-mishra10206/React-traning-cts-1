@@ -1,0 +1,24 @@
+<html>
+<script>
+    const a1 = [2, 3, 4];
+    const a2 = [4, 5, 6];
+    function addArray(a1, a2) {
+        // return a1.map((elemnt1, index) => {
+        //     return a1[index] + a2[index];
+        // })
+        let result = [];
+        for (let indexA1 = 0; indexA1 < a1.length; indexA1++) {
+            for (let indexA2 = 0; indexA2 < a2.length; indexA2++) {
+                if (indexA1 === indexA2) {
+                    result.push(a1[indexA1] + a2[indexA2])
+                }
+            }
+
+        }
+        return result;
+    }
+
+    console.log('newArray1 : ', addArray(a1, a2))
+</script>
+
+</html>

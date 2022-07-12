@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="DnD.js"></script>
+    <link rel="stylesheet" href="DnD.css">
+</head>
+<body>
+    <div id="container" ondrop="dropImageFunc(event)" ondragover="allowDrop(event)">
+    </div> 
+    <img id= "dragImg" src="image.png" alt = "drag image" draggable="true" ondragstart="dragStart(event)" onclick="imageClicked(event)"/> 
+    Dimension: <div id="displayStyle">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<script>
+
+    function sortNumbers(scores) {
+        console.log(scores);
+        scores.sort(function (num1, num2) {
+            return num2 - num1;
+        })
+        console.log(scores);
+    }
+    // sortNumbers([2, 7, 34, 8, 1]);
+    // sortNumbers([-1, 6, 4, 28, 15]);
+
+    const a1 = [11, 12, 13, 14];
+    // for (let index = 0; index < a1.length; index++) {
+    //     console.log(a1[index]);
+    // }
+
+    const a3 = a1.forEach(function (element, index) {
+        console.log(element, index);
+        return element + 10;
+    })
+    console.log('a3 : ', a3);
+
+    const updatedArray = a1.map(function (element, index) {
+        return element + 1;
+    })
+    console.log('updatedArray : ', updatedArray);
+
+    function addition(num1, num2){
+        return num1+num2;
+    }
+
+    console.log('addition : ', addition(2,3));
+</script>
+
+</html>
