@@ -1,0 +1,25 @@
+<html>
+    <script>
+        let arr = [1,2,3];
+
+function demo2(arr){
+    const firstPart = arr.slice(0,2);
+    console.log(firstPart);
+    const secondPart = arr.slice(2,3);
+    console.log(secondPart);
+    const newArray = [...firstPart,6 ,...secondPart]
+    console.log(newArray)
+}
+
+demo2(arr)
+
+       function demo1(){
+        console.log(arr);
+        arr.push(5)
+        console.log(arr);
+        arr = [...arr,6]
+        console.log(arr);
+       }
+    //    demo1(arr)
+    </script>
+</html>
