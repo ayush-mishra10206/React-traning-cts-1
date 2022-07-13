@@ -1,0 +1,21 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+</body>
+<script>
+    const foo = (numbers) => {
+        const bodyTag = document.querySelector('body');
+        numbers.forEach(element => {
+            const inputTag = document.createElement('input');
+           inputTag.value= element;
+            bodyTag.appendChild(inputTag)
+        });
+    }
+    foo([1, 2, 3]);
+</script>
+
+</html>

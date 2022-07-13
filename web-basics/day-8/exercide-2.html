@@ -1,0 +1,22 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+</body>
+<script>
+    function generateDivs(a) {
+        const elements = Object.values(arguments);
+        const bodyTag = document.getElementById('body');
+        elements.forEach(element => {
+            const divTag = document.createElement('div');
+            divTag.innerHTML = element
+            bodyTag.appendChild(divTag)
+        });
+    }
+    generateDivs(11, 12, 13);
+</script>
+
+</html>

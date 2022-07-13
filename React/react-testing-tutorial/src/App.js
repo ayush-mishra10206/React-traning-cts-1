@@ -1,14 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import TableData from './tabledata';
-import Email from './email';
+import Counter from './Counter';
+import ToDoList from './todo-list';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <TableData/> */}
-        <Email/>
+       <Counter />
+       {/* <ToDoList/> */}
       </header>
     </div>
   );
