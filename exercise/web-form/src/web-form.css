@@ -1,0 +1,12 @@
+.testing{
+    border: 1px solid red;
+}
+
+.outerContainer{
+    height: max-content;
+}
+.topDiv{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    height: 100px;
+    margin: 0px;
+}
