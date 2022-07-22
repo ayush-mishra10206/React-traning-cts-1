@@ -11,9 +11,9 @@ function reducer(state = { counter: 10 }, action) {
     case ADD_TODO:
       return { ...state, data: action.payLoad }
     case INCREMENT:
-      return state + 1
+      return { ...state, counter: state.counter + 1 }
     case DECREMENT:
-      return state - 1
+      return { ...state, counter: state.counter - 1 }
     default:
       return state
   }
