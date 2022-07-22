@@ -5,6 +5,7 @@ import ContextApi from './withContext/contextApi';
 import ContextDemoClass from './withoutContextClass/contextdemo';
 import ContextApiClass from './withContextClass/contextdemo';
 import ContactForm from './FormComponent';
+import UncontrolledForm from './UncontrolledForm';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
      {/* <ContextApi/> */}
      {/* <ContextDemoClass/> */}
      {/* <ContextApiClass/> */}
-     <ContactForm/>
+     {/* <ContactForm/> */}
+     <UncontrolledForm/>
     </div>
   );
 }
