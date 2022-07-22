@@ -14,7 +14,6 @@ export default function ProjectList({ projects, onClickedSave }: ProjectListProp
     console.log('project : ', projects)
     const [currentSelectedProject, setcurrentSelectedProject] = useState({})
     const onClickEdit = (project: Project) => {
-        console.log('edit button Clickedd : ', project)
         setcurrentSelectedProject(project)
     }
 
@@ -27,10 +26,10 @@ export default function ProjectList({ projects, onClickedSave }: ProjectListProp
     return (
         <div className="row">
             {projects.map((project) => (
-                <div className="cols-sm">
-
+                <div  className="cols-sm">
+                    <label data-testid="listLabel">List</label>
                     {project === currentSelectedProject ?
-                        <ProjectForm onClickedCancel={onClickedCancel} onClickedSave={onClickedSave}/>
+                        <ProjectForm project={project} onClickedCancel={onClickedCancel} onClickedSave={onClickedSave}/>
                         :
                         <ProjectCard onClickEdit={onClickEdit} project={project} />
 

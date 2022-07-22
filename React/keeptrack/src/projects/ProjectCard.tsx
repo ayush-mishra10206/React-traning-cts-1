@@ -17,12 +17,13 @@ export default function ProjectCard({project, onClickEdit}:ProjectCardProps){
 
     return (
         <div className="card">
+            <label data-testid="projectName">Something</label>
         <img src={project.imageUrl} alt={project.name} />
         <section className="section darkgrey">
             <p className="card-title">{project.name}</p>
             <p>{project.descp}</p>
             <p>Budget : {project.budget.toLocaleString()}</p>
-            <button onClick={onClickButtonPressed} className="bordered">
+            <button data-testid="editBtn" onClick={onClickButtonPressed} className="bordered">
                 Edit</button>
         </section>
     </div>

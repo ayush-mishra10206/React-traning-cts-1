@@ -1,17 +1,17 @@
 export class Project {
-    id: number | undefined;
-    name: string = '';
-    descp: string = '';
-    imageUrl :string = '';
-    contractTypeId:number | undefined;
-    contractSignedOn: Date = new Date();
-    budget: number = 0;
-    isActive: boolean = false;
-    get isNew(): boolean {
-      return this.id === undefined;
-}
+  id: number | undefined;
+  name: string = '';
+  descp: string = '';
+  imageUrl: string = '';
+  contractTypeId: number | undefined;
+  contractSignedOn: Date = new Date();
+  budget: number = 0;
+  isActive: boolean = false;
+  get isNew(): boolean {
+    return this.id === undefined;
+  }
 
-constructor(init?: any) {
+  constructor(init?: any) {
     if (!init) return;
     if (init.id) this.id = init.id;
     if (init.name) this.name = init.name;
