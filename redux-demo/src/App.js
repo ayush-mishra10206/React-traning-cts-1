@@ -1,12 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
-import LogState from './counter';
+import { Provider } from 'react-redux';
+import Counter, { ADD_TODO, DECREMENT, INCREMENT } from './counter';
+import { createStore } from 'redux';
+
+
+
+function reducer(state = { counter: 10 }, action) {
+  switch (action.type) {
+    case ADD_TODO:
+      return { ...state, data: action.payLoad }
+    case INCREMENT:
+      return state + 1
+    case DECREMENT:
+      return state - 1
+    default:
+      return state
+  }
+}
+
+var store = createStore(reducer, enableDevTools());
 
 function App() {
   return (
-    <div className="App">
-      <LogState/>
-    </div>
+    <Provider store={store}>
+      <Counter />
+    </Provider>
+  );
+}
+
+function enableDevTools() {
+  return (
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
 }
 
