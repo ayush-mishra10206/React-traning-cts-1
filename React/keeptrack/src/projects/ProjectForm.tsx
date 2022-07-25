@@ -5,42 +5,90 @@ import { Project } from "./Project";
 
 
 interface ProjectFormProps {
-    project:Project;
+    project: Project;
     onClickedCancel: () => void;
     onClickedSave: (project: Project) => void
 }
 
-export default function ProjectForm({project:initialProject, onClickedCancel, onClickedSave }: ProjectFormProps) {
+export default function ProjectForm({ project: initialProject, onClickedCancel, onClickedSave }: ProjectFormProps) {
     const [project, setProject] = useState(initialProject);
+    const [errors, setErrors] = useState({
+        name: '',
+        descp: '',
+        budget: ''
+    })
+
+    function validate(project: Project) {
+        let errors: any = { name: '', descp: '', budget: '' };
+        if (project.name.length === 0) {
+            errors.name = 'Name required';
+        }
+        if (project.name.length > 0 && project.name.length < 3) {
+            errors.name = '3 characters needed';
+        }
+        if (project.descp.length === 0) {
+            errors.descp = 'Description required.';
+        }
+        if (project.budget === 0) {
+            errors.budget = 'Budget more than 0.';
+        }
+        return errors;
+    }
+
+    function isValid() {
+        return (
+            errors.name.length === 0 &&
+            errors.descp.length === 0 &&
+            errors.budget.length === 0
+        );
+    }
     const submitClicked = (event: SyntheticEvent) => {
         event.preventDefault();
+        if (!isValid()) return;
         onClickedSave(project);
     }
-    
-    const onChnageFormValue = (event:any) =>{
-        const {type,name,value,checked} = event.target;
-        let updatedValue = type==='checkbox'?checked:value;
-        if(type==='number'){
+
+    const onChnageFormValue = (event: any) => {
+        const { type, name, value, checked } = event.target;
+        let updatedValue = type === 'checkbox' ? checked : value;
+        if (type === 'number') {
             updatedValue = Number(updatedValue);
         }
-        let updatedProject:Project;
-        setProject((prevState)=>{
-            updatedProject=new Project({...prevState, [name]:updatedValue})
+        let updatedProject: Project;
+        setProject((prevState) => {
+            updatedProject = new Project({ ...prevState, [name]: updatedValue })
             return updatedProject
         })
+
+        setErrors(() => validate(updatedProject));
     }
 
     return (
         <form className="input-group vertical" onSubmit={submitClicked}>
             <label data-testid="projectName" >Project Name</label>
-            <input type="text" name="name" placeholder="enter name" value={project.name} onChange={onChnageFormValue}/>
+            <input type="text" name="name" placeholder="enter name" value={project.name} onChange={onChnageFormValue} />
+            {errors.name.length > 0 && (
+                <div className="card error">
+                    <p>{errors.name}</p>
+                </div>
+            )}
             <label>Project Description</label>
-            <textarea name="descp" placeholder="enter description" value={project.descp} onChange={onChnageFormValue}/>
+            <textarea name="descp" placeholder="enter description" value={project.descp} onChange={onChnageFormValue} />
+            {errors.descp.length > 0 && (
+                <div className="card error">
+                    <p>{errors.descp}</p>
+                </div>
+            )}
             <label>Project Budget</label>
-            <input type="number" name="budget" placeholder="enter budget" value={project.budget} onChange={onChnageFormValue}/>
+            <input type="number" name="budget" placeholder="enter budget" value={project.budget} onChange={onChnageFormValue} />
+            {errors.budget.length > 0 && (
+                <div className="card error">
+                    <p>{errors.budget}</p>
+                </div>
+            )}
             <div>
                 <label>Active?</label>
-                <input type="checkbox" name="isActive" checked={project.isActive} onChange={onChnageFormValue}/>
+                <input type="checkbox" name="isActive" checked={project.isActive} onChange={onChnageFormValue} />
             </div>
             <div className="input-group">
                 <button className="primary bordered medium">Save</button>

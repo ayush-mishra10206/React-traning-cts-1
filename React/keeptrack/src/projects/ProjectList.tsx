@@ -25,9 +25,9 @@ export default function ProjectList({ projects, onClickedSave }: ProjectListProp
 
     return (
         <div className="row">
-            {projects.map((project) => (
-                <div  className="cols-sm">
-                    <label data-testid="listLabel">List</label>
+            <label data-testid="listLabel"></label>
+            {projects.map((project, index) => (
+                <div key={index} className="cols-sm">
                     {project === currentSelectedProject ?
                         <ProjectForm project={project} onClickedCancel={onClickedCancel} onClickedSave={onClickedSave}/>
                         :
