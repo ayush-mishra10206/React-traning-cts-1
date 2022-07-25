@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProjectPage/> snapshot 1`] = `
+Array [
+  <h1>
+    Projects1
+  </h1>,
+  <div
+    className="row"
+  >
+    <label
+      data-testid="listLabel"
+    />
+    <div
+      className="cols-sm"
+    >
+      <div
+        className="card"
+      >
+        <label
+          data-testid="projectName"
+        >
+          Something
+        </label>
+        <img
+          alt="Perosn1"
+          src="/assets/placeimg_500_300_arch4.jpg"
+        />
+        <section
+          className="section darkgrey"
+        >
+          <p
+            className="card-title"
+          >
+            Perosn1
+          </p>
+          <p>
+            Descp1
+          </p>
+          <p>
+            Budget : 
+            54,637
+          </p>
+          <button
+            className="bordered"
+            data-testid="editBtn"
+            onClick={[Function]}
+          >
+            Edit
+          </button>
+        </section>
+      </div>
+    </div>
+    <div
+      className="cols-sm"
+    >
+      <div
+        className="card"
+      >
+        <label
+          data-testid="projectName"
+        >
+          Something
+        </label>
+        <img
+          alt="Person2"
+          src="/assets/placeimg_500_300_arch1.jpg"
+        />
+        <section
+          className="section darkgrey"
+        >
+          <p
+            className="card-title"
+          >
+            Person2
+          </p>
+          <p>
+            Descp2
+          </p>
+          <p>
+            Budget : 
+            91,638
+          </p>
+          <button
+            className="bordered"
+            data-testid="editBtn"
+            onClick={[Function]}
+          >
+            Edit
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>,
+  <button />,
+]
+`;
