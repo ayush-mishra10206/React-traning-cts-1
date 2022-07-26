@@ -29,11 +29,13 @@ Array [
         <section
           className="section darkgrey"
         >
-          <p
-            className="card-title"
+          <h5
+            className="strong"
           >
-            Perosn1
-          </p>
+            <strong>
+              Perosn1
+            </strong>
+          </h5>
           <p>
             Descp1
           </p>
@@ -69,11 +71,13 @@ Array [
         <section
           className="section darkgrey"
         >
-          <p
-            className="card-title"
+          <h5
+            className="strong"
           >
-            Person2
-          </p>
+            <strong>
+              Person2
+            </strong>
+          </h5>
           <p>
             Descp2
           </p>
@@ -92,6 +96,5 @@ Array [
       </div>
     </div>
   </div>,
-  <button />,
 ]
 `;

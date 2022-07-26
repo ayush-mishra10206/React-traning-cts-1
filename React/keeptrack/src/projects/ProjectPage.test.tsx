@@ -7,12 +7,12 @@ describe('<ProjectPage/>',()=>{
     beforeEach(()=>{
         render(<ProjectPage/>); 
     })
-    test('working',()=>{
+    xtest('working',()=>{
         console.log('working without render')
         // render(<ProjectPage/>)
     })
 
-    test('snapshot',()=>{
+    xtest('snapshot',()=>{
         const tree = renderer.create(<ProjectPage/>).toJSON();
         expect(tree).toMatchSnapshot();
     })

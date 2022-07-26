@@ -3,6 +3,8 @@ import { MOCK_PROJECTS } from "./MockProjects";
 import { Project } from "./Project";
 import ProjectCard from "./ProjectCard"
 import ProjectForm from "./ProjectForm";
+import userEvent from '@testing-library/user-event';
+import renderer from "react-test-renderer";
 
 // const MockProjectData = {
 //     id: 1,
@@ -40,6 +42,11 @@ import ProjectForm from "./ProjectForm";
 describe("<ProjectCard/>",()=>{
     let project = Project;
     let handleEdit = jest.mock;
+
+    const setup = ()=>{
+        render(<ProjectCard project={project} onClickEdit={handleEdit}/>)
+    } 
+
     beforeEach(()=>{
         project = new Project({
                 id:1,
@@ -51,6 +58,29 @@ describe("<ProjectCard/>",()=>{
     })
     xtest("should render initially ", ()=>{
         console.log('project card')
-        render(<ProjectCard project={project} onClickEdit={handleEdit}/>)
+        setup();
     });
+    xtest("project render",()=>{
+        setup();
+        // expect(screen.getByRole('heading')).toHaveTextContent(project.name);
+        expect(screen.getByTestId('projectName')).toHaveTextContent('something')
+        expect(screen.getByText('asdda'));
+        expect(screen.getByText('Budget:100'));
+    })
+
+    test('handler called when edit ', async()=>{
+        setup();
+        const editBtn = screen.getByTestId('editBtn');
+        fireEvent.click(editBtn);
+        expect(handleEdit).toBeCalledTimes(1);
+        expect(handleEdit).toBeCalledWith(project);
+        // const user =  userEvent.setup();
+        // await user.click(screen.getByTestId('editBtn'));
+        // expect(handleEdit).toBeCalledTimes(1);
+    })
+    test("snapShot ",()=>{
+        const tree = renderer.create(setup()).toJSON();
+        expect(tree).toMatchSnapshot();
+
+    })
 });
