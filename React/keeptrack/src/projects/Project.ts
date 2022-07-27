@@ -1,7 +1,7 @@
 export class Project {
   id: number | undefined;
   name: string = '';
-  descp: string = '';
+  description: string = '';
   imageUrl: string = '';
   contractTypeId: number | undefined;
   contractSignedOn: Date = new Date();
@@ -15,7 +15,7 @@ export class Project {
     if (!init) return;
     if (init.id) this.id = init.id;
     if (init.name) this.name = init.name;
-    if (init.descp) this.descp = init.descp;
+    if (init.description) this.description = init.description;
     if (init.imageUrl) this.imageUrl = init.imageUrl;
     if (init.contractTypeId)
       this.contractTypeId = init.contractTypeId;

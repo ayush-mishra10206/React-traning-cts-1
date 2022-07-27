@@ -4,24 +4,26 @@ import { deleteItem } from "./action";
 import Form from "./Form";
 
 export default function List(props) {
-    const { items, loading, error } = props;
-    const [editingItem, setEditingItem] = useState(null);
-    const dispatch = useDispatch();
-  
-    const handleEditClick = (item) => {
-      setEditingItem(item);
-    };
-  
-    const handleCancel = () => {
-      setEditingItem(null);
-    };
-  
-    if (loading) {
-      return <div>Loading...</div>;
-    } else if (error) {
-      return <div>{error}</div>;
-    } else {
-      return (
+  const { items, loading, error } = props;
+  const [editingItem, setEditingItem] = useState(null);
+  const dispatch = useDispatch();
+
+  const handleEditClick = (item) => {
+    setEditingItem(item);
+  };
+
+  const handleCancel = () => {
+    setEditingItem(null);
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  } else if (error) {
+    return <div>{error}</div>;
+  } else {
+    return (
+      <div>
+        <div>added</div>
         <ul>
           {items.map((item) => (
             <li key={item.id}>
@@ -39,6 +41,7 @@ export default function List(props) {
             </li>
           ))}
         </ul>
-      );
-    }
+      </div>
+    );
   }
+}

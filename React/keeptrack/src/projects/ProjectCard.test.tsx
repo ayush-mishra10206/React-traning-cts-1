@@ -7,7 +7,7 @@ import renderer from 'react-test-renderer';
 // const MockProjectData = {
 //     id: 1,
 //     name: 'Perosn1',
-//     descp: 'Descp1',
+//     description: 'Descp1',
 //     imageUrl: '/assets/placeimg_500_300_arch4.jpg',
 //     contractTypeId: 3,
 //     budget: 54637,
@@ -46,22 +46,18 @@ describe("<ProjectCard/>", () => {
             {
                 id: 1,
                 name: "something",
-                descp: 'asdda',
+                description: 'asdda',
                 budget: 100,
             }
         );
 
     })
-
-    const setup = ()=>{
-         render(<ProjectCard project={project} onClickEdit={handleEdit} />)
-    }
     xtest("should render initially ", () => {
         console.log('project card')
-        setup();
+        render(<ProjectCard project={project} onClickEdit={handleEdit} />)
     });
     xtest("project render", () => {
-        setup()
+        render(<ProjectCard project={project} onClickEdit={handleEdit} />)
         // expect(screen.getByRole('heading')).toHaveTextContent(project.name);
         expect(screen.getByTestId('projectName')).toHaveTextContent('something')
         expect(screen.getByText('asdda'));
@@ -69,7 +65,7 @@ describe("<ProjectCard/>", () => {
     })
 
     test('handler called when edit ', async () => {
-        setup();
+        render(<ProjectCard project={project} onClickEdit={handleEdit} />)
         // const editBtn = screen.getByTestId('editBtn');
         // fireEvent.click(editBtn);
         // expect(handleEdit).toBeCalledTimes(1);
@@ -79,7 +75,7 @@ describe("<ProjectCard/>", () => {
         expect(handleEdit).toBeCalledTimes(1);
     })
     test("snapShot ", () => {
-        const tree = renderer.create(setup()).toJSON();
+        const tree = renderer.create( <ProjectCard project={project} onClickEdit={handleEdit} />).toJSON();
         expect(tree).toMatchSnapshot();
 
     })

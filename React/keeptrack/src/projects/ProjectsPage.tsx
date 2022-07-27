@@ -18,7 +18,12 @@ export default function ProjectPage() {
             try {
                 const data = await projectApi.get(1);
                 setError('');
-                setProjects(data)
+                if (currentPage === 1) {
+                    setProjects(data)
+                }
+                else {
+                    setProjects([...projects, ...data])
+                }
             }
             catch (e) {
                 if (e instanceof Error) {
@@ -30,13 +35,31 @@ export default function ProjectPage() {
             }
         }
         loadProjects();
-    }, [])
+    }, [currentPage])
 
     const saveNewData = (project: Project) => {
-        let uptdProject = projects.map((prjt: Project) => {
-            return prjt.id === project.id ? project : prjt;
-        });
-        setProjects(uptdProject);
+        // let uptdProject = projects.map((prjt: Project) => {
+        //     return prjt.id === project.id ? project : prjt;
+        // });
+        // setProjects(uptdProject);
+        projectApi
+            .put(project)
+            .then((updatedProject) => {
+                let updatedProjects = projects.map((p: Project) => {
+                    return p.id === project.id ? new Project(updatedProject) : p;
+                });
+                setProjects(updatedProjects);
+            })
+            .catch((e) => {
+                if (e instanceof Error) {
+                    setError(e.message);
+                }
+            })
+    }
+
+
+    const handleMoreClick = () => {
+        setCurrentPage((currentPage) => currentPage + 1);
     }
 
 
@@ -52,6 +75,17 @@ export default function ProjectPage() {
                                 {error}
                             </p>
                         </section>
+                    </div>
+                </div>
+            )}
+            {!loading && !error && (
+                <div className="row">
+                    <div className="col-sm-12">
+                        <div className="button-group fluid">
+                            <button className="button default" onClick={handleMoreClick}>
+                                More...
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}

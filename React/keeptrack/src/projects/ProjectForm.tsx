@@ -14,20 +14,20 @@ export default function ProjectForm({ project: initialProject, onClickedCancel, 
     const [project, setProject] = useState(initialProject);
     const [errors, setErrors] = useState({
         name: '',
-        descp: '',
+        description: '',
         budget: ''
     })
 
     function validate(project: Project) {
-        let errors: any = { name: '', descp: '', budget: '' };
+        let errors: any = { name: '', description: '', budget: '' };
         if (project.name.length === 0) {
             errors.name = 'Name required';
         }
         if (project.name.length > 0 && project.name.length < 3) {
             errors.name = '3 characters needed';
         }
-        if (project.descp.length === 0) {
-            errors.descp = 'Description required.';
+        if (project.description.length === 0) {
+            errors.description = 'Description required.';
         }
         if (project.budget === 0) {
             errors.budget = 'Budget more than 0.';
@@ -38,7 +38,7 @@ export default function ProjectForm({ project: initialProject, onClickedCancel, 
     function isValid() {
         return (
             errors.name.length === 0 &&
-            errors.descp.length === 0 &&
+            errors.description.length === 0 &&
             errors.budget.length === 0
         );
     }
@@ -73,10 +73,10 @@ export default function ProjectForm({ project: initialProject, onClickedCancel, 
                 </div>
             )}
             <label>Project Description</label>
-            <textarea name="descp" placeholder="enter description" value={project.descp} onChange={onChnageFormValue} />
-            {errors.descp.length > 0 && (
+            <textarea name="description" placeholder="enter description" value={project.description} onChange={onChnageFormValue} />
+            {errors.description.length > 0 && (
                 <div className="card error">
-                    <p>{errors.descp}</p>
+                    <p>{errors.description}</p>
                 </div>
             )}
             <label>Project Budget</label>

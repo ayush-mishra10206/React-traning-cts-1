@@ -61,10 +61,26 @@ export const projectApi = {
             .then(parseJSON)
             .then(convertToProjectModels)
             .catch((error: TypeError) => {
-                console.log('log client error ' + error);
+                console.log('log client error ' , error);
                 throw new Error(
                     'error retriveing data'
                 );
             });
+    },
+
+    put(project: Project) {
+        return fetch(`${url}/${project.id}`, {
+            method: 'PUT',
+            body: JSON.stringify(project),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(checkStatus)
+        .then(parseJSON)
+        .catch((error:TypeError)=>{
+            console.log('log error ', error);
+            throw new Error('error while updating')
+        })
     }
 }
