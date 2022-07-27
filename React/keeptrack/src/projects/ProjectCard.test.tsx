@@ -1,10 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react"
-import { MOCK_PROJECTS } from "./MockProjects";
 import { Project } from "./Project";
 import ProjectCard from "./ProjectCard"
-import ProjectForm from "./ProjectForm";
 import userEvent from '@testing-library/user-event';
-import renderer from "react-test-renderer";
+import renderer from 'react-test-renderer';
 
 // const MockProjectData = {
 //     id: 1,
@@ -39,46 +37,48 @@ import renderer from "react-test-renderer";
 //     // 
 // })
 
-describe("<ProjectCard/>",()=>{
-    let project = Project;
-    let handleEdit = jest.mock;
+describe("<ProjectCard/>", () => {
+    let project: Project;
+    // let handleEdit = jest.mock;
+    let handleEdit = jest.fn();
+    beforeEach(() => {
+        project = new Project(
+            {
+                id: 1,
+                name: "something",
+                descp: 'asdda',
+                budget: 100,
+            }
+        );
+
+    })
 
     const setup = ()=>{
-        render(<ProjectCard project={project} onClickEdit={handleEdit}/>)
-    } 
-
-    beforeEach(()=>{
-       let project = new Project({
-                id:1,
-                name :"something",
-                descp:'asdda',
-                budget:100,
-        });
-        handleEdit = jest.fn();
-    })
-    xtest("should render initially ", ()=>{
+         render(<ProjectCard project={project} onClickEdit={handleEdit} />)
+    }
+    xtest("should render initially ", () => {
         console.log('project card')
         setup();
     });
-    xtest("project render",()=>{
-        setup();
+    xtest("project render", () => {
+        setup()
         // expect(screen.getByRole('heading')).toHaveTextContent(project.name);
         expect(screen.getByTestId('projectName')).toHaveTextContent('something')
         expect(screen.getByText('asdda'));
         expect(screen.getByText('Budget:100'));
     })
 
-    test('handler called when edit ', async()=>{
+    test('handler called when edit ', async () => {
         setup();
-        const editBtn = screen.getByTestId('editBtn');
-        fireEvent.click(editBtn);
-        expect(handleEdit).toBeCalledTimes(1);
-        expect(handleEdit).toBeCalledWith(project);
-        // const user =  userEvent.setup();
-        // await user.click(screen.getByTestId('editBtn'));
+        // const editBtn = screen.getByTestId('editBtn');
+        // fireEvent.click(editBtn);
         // expect(handleEdit).toBeCalledTimes(1);
+        // expect(handleEdit).toBeCalledWith(project);
+        const user = userEvent.setup();
+        await user.click(screen.getByTestId('editBtn'));
+        expect(handleEdit).toBeCalledTimes(1);
     })
-    test("snapShot ",()=>{
+    test("snapShot ", () => {
         const tree = renderer.create(setup()).toJSON();
         expect(tree).toMatchSnapshot();
 

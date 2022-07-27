@@ -25,7 +25,7 @@ export default function ProjectCard({ project, onClickEdit }: ProjectCardProps) 
                     <strong>{project.name}</strong>
                 </h5>
                 <p>{project.descp}</p>
-                <p>Budget:{project.budget.toLocaleString()}</p>
+                <p>Budget:{project.budget}</p>
                 <button data-testid="editBtn" onClick={onClickButtonPressed} className="bordered">
                     Edit</button>
             </section>

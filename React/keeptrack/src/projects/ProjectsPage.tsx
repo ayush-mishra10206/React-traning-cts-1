@@ -9,6 +9,7 @@ export default function ProjectPage() {
     const [projects, setProjects] = useState<Project[]>([])
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | undefined>(undefined);
+    const [currentPage, setCurrentPage] = useState(1);
 
 
     useEffect(() => {
@@ -24,26 +25,46 @@ export default function ProjectPage() {
                     setError(e.message);
                 }
             }
-            finally{
+            finally {
                 setLoading(false);
             }
         }
         loadProjects();
-    },[])
+    }, [])
 
-const saveNewData = (project: Project) => {
-    let uptdProject = projects.map((prjt: Project) => {
-        return prjt.id === project.id ? project : prjt;
-    });
-    setProjects(uptdProject);
-}
+    const saveNewData = (project: Project) => {
+        let uptdProject = projects.map((prjt: Project) => {
+            return prjt.id === project.id ? project : prjt;
+        });
+        setProjects(uptdProject);
+    }
 
 
-return <>
-    <h1>Projects1</h1>
-    <ProjectList
-        onClickedSave={saveNewData}
-        projects={projects} />
-</>
+    return (
+        <Fragment>
+            <h1>Projects1</h1>
+            {error && (
+                <div className="row">
+                    <div className="card large error">
+                        <section>
+                            <p>
+                                <span className="icon-alert inverse "></span>
+                                {error}
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            )}
+            <ProjectList
+                onClickedSave={saveNewData}
+                projects={projects} />
+            {loading && (
+                <div className="center-page">
+                    <span className="spinner primary"></span>
+                    <p>Loading...</p>
+                </div>
+            )}
+        </Fragment>
+    )
 
 }

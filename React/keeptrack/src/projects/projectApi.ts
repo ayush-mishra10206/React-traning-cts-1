@@ -1,3 +1,5 @@
+import { Project } from "./Project";
+
 const baseUrl = 'http://localhost:3000';
 const url = `${baseUrl}/projects`;
 
@@ -38,11 +40,31 @@ const checkStatus = (res: any) => {
 
 }
 
+const parseJSON = (response: Response) => {
+    return response.json();
+}
+
+const convertToProjectModels = (data: any[]): Project[] => {
+    let projects: Project[] = data.map(convertToProjectModel);
+    return projects;
+}
+
+const convertToProjectModel = (item: any): Project => {
+    return new Project(item);
+}
+
 export const projectApi = {
     get(page = 1, limit = 20) {
         return fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`)
-            .then(delay(600))
+            // .then(delay(600))
             .then(checkStatus)
-
+            .then(parseJSON)
+            .then(convertToProjectModels)
+            .catch((error: TypeError) => {
+                console.log('log client error ' + error);
+                throw new Error(
+                    'error retriveing data'
+                );
+            });
     }
 }
