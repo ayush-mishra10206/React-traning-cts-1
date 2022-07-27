@@ -1,3 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProjectCard/> snapShot  1`] = `null`;
+exports[`<ProjectCard/> snapShot  1`] = `
+<div
+  className="card"
+>
+  <div />
+  <label
+    data-testid="projectName"
+  >
+    something
+  </label>
+  <img
+    alt="something"
+    src=""
+  />
+  <section
+    className="section darkgrey"
+  >
+    <a
+      href="/projects/1"
+      onClick={[Function]}
+    >
+      <h5
+        className="strong"
+      >
+        <strong>
+          something
+        </strong>
+      </h5>
+      <p>
+        asdda
+      </p>
+      <p>
+        Budget:
+        100
+      </p>
+    </a>
+    <button
+      className="bordered"
+      data-testid="editBtn"
+      onClick={[Function]}
+    >
+      Edit
+    </button>
+  </section>
+</div>
+`;

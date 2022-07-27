@@ -1,19 +1,19 @@
 import { render } from "@testing-library/react"
-import ProjectPage from "./ProjectsPage"
 import renderer from 'react-test-renderer';
+import ProjectsPage from "./ProjectsPage";
 
 
-describe('<ProjectPage/>',()=>{
+describe('<ProjectsPage/>',()=>{
     beforeEach(()=>{
-        render(<ProjectPage/>); 
+        render(<ProjectsPage/>); 
     })
-    xtest('working',()=>{
+    test('working',()=>{
         console.log('working without render')
         // render(<ProjectPage/>)
     })
 
     xtest('snapshot',()=>{
-        const tree = renderer.create(<ProjectPage/>).toJSON();
+        const tree = renderer.create(<ProjectsPage/>).toJSON();
         expect(tree).toMatchSnapshot();
     })
 });

@@ -54,6 +54,14 @@ const convertToProjectModel = (item: any): Project => {
 }
 
 export const projectApi = {
+
+    find(id:number){
+        return fetch(`${url}/${id}`)
+        .then(checkStatus)
+        .then(parseJSON)
+        .then(convertToProjectModel)
+    },
+
     get(page = 1, limit = 20) {
         return fetch(`${url}?_page=${page}&_limit=${limit}&_sort=name`)
             // .then(delay(600))

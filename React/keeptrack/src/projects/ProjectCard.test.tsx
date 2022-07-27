@@ -3,6 +3,7 @@ import { Project } from "./Project";
 import ProjectCard from "./ProjectCard"
 import userEvent from '@testing-library/user-event';
 import renderer from 'react-test-renderer';
+import { MemoryRouter } from 'react-router-dom';
 
 // const MockProjectData = {
 //     id: 1,
@@ -54,10 +55,18 @@ describe("<ProjectCard/>", () => {
     })
     xtest("should render initially ", () => {
         console.log('project card')
-        render(<ProjectCard project={project} onClickEdit={handleEdit} />)
+        render(
+            <MemoryRouter>
+                <ProjectCard project={project} onClickEdit={handleEdit} />
+            </MemoryRouter>
+        )
     });
     xtest("project render", () => {
-        render(<ProjectCard project={project} onClickEdit={handleEdit} />)
+        render(
+            <MemoryRouter>
+                <ProjectCard project={project} onClickEdit={handleEdit} />
+            </MemoryRouter>
+        )
         // expect(screen.getByRole('heading')).toHaveTextContent(project.name);
         expect(screen.getByTestId('projectName')).toHaveTextContent('something')
         expect(screen.getByText('asdda'));
@@ -65,7 +74,11 @@ describe("<ProjectCard/>", () => {
     })
 
     test('handler called when edit ', async () => {
-        render(<ProjectCard project={project} onClickEdit={handleEdit} />)
+        render(
+            <MemoryRouter>
+                <ProjectCard project={project} onClickEdit={handleEdit} />
+            </MemoryRouter>
+        )
         // const editBtn = screen.getByTestId('editBtn');
         // fireEvent.click(editBtn);
         // expect(handleEdit).toBeCalledTimes(1);
@@ -75,7 +88,11 @@ describe("<ProjectCard/>", () => {
         expect(handleEdit).toBeCalledTimes(1);
     })
     test("snapShot ", () => {
-        const tree = renderer.create( <ProjectCard project={project} onClickEdit={handleEdit} />).toJSON();
+        const tree = renderer.create(
+            <MemoryRouter>
+                <ProjectCard project={project} onClickEdit={handleEdit} />
+            </MemoryRouter>
+        ).toJSON();
         expect(tree).toMatchSnapshot();
 
     })
