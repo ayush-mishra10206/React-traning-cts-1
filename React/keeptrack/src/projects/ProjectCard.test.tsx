@@ -48,7 +48,7 @@ describe("<ProjectCard/>",()=>{
     } 
 
     beforeEach(()=>{
-        project = new Project({
+       let project = new Project({
                 id:1,
                 name :"something",
                 descp:'asdda',
