@@ -7,11 +7,10 @@ import ProjectForm from "./ProjectForm";
 
 interface ProjectListProps {
     projects: Project[]
-    onClickedSave:(project:Project)=>void
+    // onClickedSave:(project:Project)=>void
 }
 
-export default function ProjectList({ projects, onClickedSave }: ProjectListProps) {
-    console.log('project : ', projects)
+export default function ProjectList({ projects }: ProjectListProps) {
     const [currentSelectedProject, setcurrentSelectedProject] = useState({})
     const onClickEdit = (project: Project) => {
         setcurrentSelectedProject(project)
@@ -28,7 +27,7 @@ export default function ProjectList({ projects, onClickedSave }: ProjectListProp
             {projects && projects.map((project, index) => (
                 <div key={index} className="cols-sm">
                     {project === currentSelectedProject ?
-                        <ProjectForm project={project} onClickedCancel={onClickedCancel} onClickedSave={onClickedSave}/>
+                        <ProjectForm project={project} onClickedCancel={onClickedCancel} />
                         :
                         <ProjectCard onClickEdit={onClickEdit} project={project} />
 

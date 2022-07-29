@@ -55,11 +55,11 @@ const convertToProjectModel = (item: any): Project => {
 
 export const projectApi = {
 
-    find(id:number){
+    find(id: number) {
         return fetch(`${url}/${id}`)
-        .then(checkStatus)
-        .then(parseJSON)
-        .then(convertToProjectModel)
+            .then(checkStatus)
+            .then(parseJSON)
+            .then(convertToProjectModel)
     },
 
     get(page = 1, limit = 20) {
@@ -69,7 +69,7 @@ export const projectApi = {
             .then(parseJSON)
             .then(convertToProjectModels)
             .catch((error: TypeError) => {
-                console.log('log client error ' , error);
+                console.log('log client error ', error);
                 throw new Error(
                     'error retriveing data'
                 );
@@ -84,11 +84,11 @@ export const projectApi = {
                 'Content-Type': 'application/json'
             }
         })
-        .then(checkStatus)
-        .then(parseJSON)
-        .catch((error:TypeError)=>{
-            console.log('log error ', error);
-            throw new Error('error while updating')
-        })
+            .then(checkStatus)
+            .then(parseJSON)
+            .catch((error: TypeError) => {
+                console.log('log error ', error);
+                throw new Error('error while updating')
+            })
     }
 }

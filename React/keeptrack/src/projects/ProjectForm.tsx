@@ -1,22 +1,27 @@
 import { SyntheticEvent, useState } from "react";
 import { Project } from "./Project";
-
-
+import { useDispatch } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { Action } from 'redux';
+import { ProjectState } from "./state/projectTypes";
+import { saveProject } from "./state/projectActions";
 
 
 interface ProjectFormProps {
     project: Project;
     onClickedCancel: () => void;
-    onClickedSave: (project: Project) => void
+    // onClickedSave: (project: Project) => void
 }
 
-export default function ProjectForm({ project: initialProject, onClickedCancel, onClickedSave }: ProjectFormProps) {
+export default function ProjectForm({ project: initialProject, onClickedCancel }: ProjectFormProps) {
     const [project, setProject] = useState(initialProject);
     const [errors, setErrors] = useState({
         name: '',
         description: '',
         budget: ''
     })
+    const dispatch = useDispatch<ThunkDispatch<ProjectState, any, Action>>();
+
 
     function validate(project: Project) {
         let errors: any = { name: '', description: '', budget: '' };
@@ -45,7 +50,8 @@ export default function ProjectForm({ project: initialProject, onClickedCancel, 
     const submitClicked = (event: SyntheticEvent) => {
         event.preventDefault();
         if (!isValid()) return;
-        onClickedSave(project);
+        // onClickedSave(project);
+        dispatch(saveProject(project));
     }
 
     const onChnageFormValue = (event: any) => {

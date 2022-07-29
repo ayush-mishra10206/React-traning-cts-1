@@ -4,24 +4,29 @@ import { Project } from "../Project";
 import ProjectList from "../ProjectList"
 import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
-
+import { Provider } from 'react-redux';
+import { store } from "../../state";
 
 describe("<ProjectList/>", () => {
     let handleSave = jest.fn();
     test("initial render project list ", () => {
         render(
-            <MemoryRouter>
-                <ProjectList projects={MOCK_PROJECTS} onClickedSave={handleSave} />
-            </MemoryRouter>
+            <Provider store={store}>
+                <MemoryRouter>
+                    <ProjectList projects={MOCK_PROJECTS} />
+                </MemoryRouter>
+            </Provider>
         )
         console.log("working project list")
     })
 
     test("should display list ", () => {
         render(
-            <MemoryRouter>
-                <ProjectList projects={MOCK_PROJECTS} onClickedSave={handleSave} />
-            </MemoryRouter>
+            <Provider store={store}>
+                <MemoryRouter>
+                    <ProjectList projects={MOCK_PROJECTS} />
+                </MemoryRouter>
+            </Provider>
         )
 
         expect(screen.getAllByRole("heading")).toHaveLength(MOCK_PROJECTS.length);
@@ -30,9 +35,11 @@ describe("<ProjectList/>", () => {
 
     test("testing function for edit ", async () => {
         render(
-            <MemoryRouter>
-                <ProjectList projects={MOCK_PROJECTS} onClickedSave={handleSave} />
-            </MemoryRouter>
+            <Provider store={store}>
+                <MemoryRouter>
+                    <ProjectList projects={MOCK_PROJECTS} />
+                </MemoryRouter>
+            </Provider>
         )
         // const user = userEvent.setup();
         // await user.click(screen.getByTestId("editBtn"))
@@ -44,9 +51,11 @@ describe("<ProjectList/>", () => {
 
     test("testing image in project card ", async () => {
         render(
-            <MemoryRouter>
-                <ProjectList projects={MOCK_PROJECTS} onClickedSave={handleSave} />
-            </MemoryRouter>
+            <Provider store={store}>
+                <MemoryRouter>
+                    <ProjectList projects={MOCK_PROJECTS} />
+                </MemoryRouter>
+            </Provider>
         )
 
         // const editBtn = screen.getByRole("button", { name: /edit Perosn1/i });
@@ -55,6 +64,6 @@ describe("<ProjectList/>", () => {
         await user.click(screen.getByRole("button", { name: /edit Perosn1/i }));
         await user.click(screen.getByRole("button", { name: /cancel/i }))
         // expect(screen.getByRole("img", { name: /perosn1/i })).toBeInTheDocument();
-        expect(screen.queryByRole("form",{name:/edit a project/i})).not.toBeInTheDocument()
+        expect(screen.queryByRole("form", { name: /edit a project/i })).not.toBeInTheDocument()
     })
 })
