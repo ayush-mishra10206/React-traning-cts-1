@@ -30,7 +30,7 @@ export default function ProjectCard({ project, onClickEdit }: ProjectCardProps) 
                     <p>Budget:{project.budget}</p>
                 </Link>
 
-                <button data-testid="editBtn" onClick={onClickButtonPressed} className="bordered">
+                <button aria-label={`edit ${project.name}`} data-testid="editBtn" onClick={onClickButtonPressed} className="bordered">
                     Edit</button>
             </section>
         </div >

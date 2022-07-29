@@ -1,7 +1,7 @@
 import { Project } from "./Project";
 
 const baseUrl = 'http://localhost:3000';
-const url = `${baseUrl}/projects`;
+export const url = `${baseUrl}/projects`;
 
 
 

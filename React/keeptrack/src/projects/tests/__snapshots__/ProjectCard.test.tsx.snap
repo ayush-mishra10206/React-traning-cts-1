@@ -37,6 +37,7 @@ exports[`<ProjectCard/> snapShot  1`] = `
       </p>
     </a>
     <button
+      aria-label="edit something"
       className="bordered"
       data-testid="editBtn"
       onClick={[Function]}

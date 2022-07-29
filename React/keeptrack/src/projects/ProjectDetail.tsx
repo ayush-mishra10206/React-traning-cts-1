@@ -22,12 +22,14 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
             <p>Budget : {project.budget}</p>
 
             <p>Signed: {project.contractSignedOn.toLocaleDateString()}</p>
-            <p>
-              <mark data-testid = "isActive" className="active">
+            <div>
+              <mark className="active">
                 {' '}
-                {project.isActive ? 'active' : 'inactive'}
+                <div data-testid="isActive">
+                  {project.isActive ? 'active' : 'inactive'}
+                </div>
               </mark>
-            </p>
+            </div>
           </section>
         </div>
       </div>

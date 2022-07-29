@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react"
-import { Project } from "./Project";
-import ProjectCard from "./ProjectCard"
+import { Project } from "../Project";
+import ProjectCard from "../ProjectCard"
 import userEvent from '@testing-library/user-event';
 import renderer from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProjectsPage/> snapshot 1`] = `
+Array [
+  <h1>
+    Projects1
+  </h1>,
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-12"
+    >
+      <div
+        className="button-group fluid"
+      >
+        <button
+          className="button default"
+          onClick={[Function]}
+        >
+          More...
+        </button>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="row"
+  />,
+]
+`;

@@ -64,7 +64,10 @@ export default function ProjectForm({ project: initialProject, onClickedCancel, 
     }
 
     return (
-        <form className="input-group vertical" onSubmit={submitClicked}>
+        <form 
+        aria-label="Edit a project"
+        name="projectForm"
+        className="input-group vertical" onSubmit={submitClicked}>
             <label data-testid="projectName" >Project Name</label>
             <input type="text" name="name" placeholder="enter name" value={project.name} onChange={onChnageFormValue} />
             {errors.name.length > 0 && (

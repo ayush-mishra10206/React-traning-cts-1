@@ -1,0 +1,60 @@
+import { render, screen, fireEvent } from "@testing-library/react"
+import { MOCK_PROJECTS } from "../MockProjects";
+import { Project } from "../Project";
+import ProjectList from "../ProjectList"
+import { MemoryRouter } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
+
+
+describe("<ProjectList/>", () => {
+    let handleSave = jest.fn();
+    test("initial render project list ", () => {
+        render(
+            <MemoryRouter>
+                <ProjectList projects={MOCK_PROJECTS} onClickedSave={handleSave} />
+            </MemoryRouter>
+        )
+        console.log("working project list")
+    })
+
+    test("should display list ", () => {
+        render(
+            <MemoryRouter>
+                <ProjectList projects={MOCK_PROJECTS} onClickedSave={handleSave} />
+            </MemoryRouter>
+        )
+
+        expect(screen.getAllByRole("heading")).toHaveLength(MOCK_PROJECTS.length);
+        expect(screen.getAllByRole("img")).toHaveLength(MOCK_PROJECTS.length);
+    })
+
+    test("testing function for edit ", async () => {
+        render(
+            <MemoryRouter>
+                <ProjectList projects={MOCK_PROJECTS} onClickedSave={handleSave} />
+            </MemoryRouter>
+        )
+        // const user = userEvent.setup();
+        // await user.click(screen.getByTestId("editBtn"))
+        const editBtn = screen.getByRole("button", { name: /edit Perosn1/i });
+        fireEvent.click(editBtn);
+        expect(screen.getByRole("form", { name: /edit a project/i })).toBeInTheDocument();
+
+    })
+
+    test("testing image in project card ", async () => {
+        render(
+            <MemoryRouter>
+                <ProjectList projects={MOCK_PROJECTS} onClickedSave={handleSave} />
+            </MemoryRouter>
+        )
+
+        // const editBtn = screen.getByRole("button", { name: /edit Perosn1/i });
+        // fireEvent.click(editBtn)
+        const user = userEvent.setup();
+        await user.click(screen.getByRole("button", { name: /edit Perosn1/i }));
+        await user.click(screen.getByRole("button", { name: /cancel/i }))
+        // expect(screen.getByRole("img", { name: /perosn1/i })).toBeInTheDocument();
+        expect(screen.queryByRole("form",{name:/edit a project/i})).not.toBeInTheDocument()
+    })
+})
