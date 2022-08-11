@@ -1,0 +1,44 @@
+
+
+.productDetailsOuterdiv{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.image{
+    width: 25%;
+    height: 20%;
+    border:1px solid red
+}
+.leftDiv{
+    border: 1px solid red;
+    width: 50%;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+.priceDetailOuterDiv{
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 616px) {
+    .productDetailsOuterdiv{
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    .image{
+        width: 50%;
+        height: 20%;
+        border:1px solid red
+    }
+    .leftDiv{
+        border: 1px solid red;
+        margin-top: 5%;
+        margin-left: 0;
+    }
+}
+
+
+

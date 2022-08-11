@@ -1,0 +1,23 @@
+
+
+
+.priceOuterDiv{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.originalPrice{
+    text-decoration:line-through; 
+    color:grey;
+    font-weight: lighter;
+    margin-left: 10px;
+}
+
+button{
+    border:0;
+    background-color: white;
+}

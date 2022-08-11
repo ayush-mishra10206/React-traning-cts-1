@@ -1,0 +1,13 @@
+
+.title{
+    font-family: cursive;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    padding-bottom: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #8FE3CF;
+    height: 114px;
+}

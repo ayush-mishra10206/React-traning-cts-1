@@ -1,0 +1,236 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "image": "/assets/Product1.png",
+      "price": 850,
+      "title": "afca",
+      "type": "Shirt",
+      "description": "faef",
+      "reviews": []
+    },
+    {
+      "id": 2,
+      "image": "/assets/Product2.png",
+      "price": 250,
+      "title": "afca",
+      "type": "Trousers",
+      "description": "faef",
+      "reviews": [
+        {
+          "email": "32",
+          "name": "asd",
+          "phone": "33",
+          "rating": "neutral",
+          "reviewText": "23"
+        }
+      ],
+      "email": "32",
+      "name": "asd",
+      "phone": "33",
+      "rating": "neutral",
+      "reviewText": "23"
+    },
+    {
+      "id": 3,
+      "image": "/assets/Product3.png",
+      "price": 6750,
+      "title": "afca",
+      "type": "Shoes",
+      "description": "faef",
+      "reviews": [
+        {
+          "name": "Perosn1",
+          "email": "xyz@gmail.com",
+          "phone": "24235235",
+          "reviewText": "very good",
+          "rating": "less"
+        },
+        {
+          "name": "bj,b,m",
+          "email": "v mn v",
+          "phone": "6897",
+          "reviewText": "nblkn",
+          "rating": "neutral"
+        },
+        {
+          "name": "asdasd",
+          "email": "asdas",
+          "phone": "2143",
+          "reviewText": "asdasd",
+          "rating": "laughing"
+        },
+        {
+          "name": "Perosn1",
+          "email": "asd",
+          "phone": "2321",
+          "reviewText": "asdas",
+          "rating": "neutral"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": "/assets/Product4.png",
+      "price": 340,
+      "title": "afca",
+      "type": "Shoes",
+      "description": "faef",
+      "reviews": []
+    }
+  ],
+  "aboutData": [],
+  "contactData": [
+    {
+      "id": 1,
+      "address": "280 ParK Avenue Z,Cross cut Complex, Bangalore, India",
+      "phone": [
+        "(91) 987 654 3210",
+        "(91) 987 654 3211"
+      ],
+      "email": "contact@sparkclothing.com"
+    }
+  ],
+  "getInTouchData": [
+    {
+      "name": "bjm",
+      "email": "bjm,",
+      "phone": "689",
+      "message": "nk,",
+      "id": 1
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 2
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 3
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 4
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 5
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 6
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 7
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 8
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 9
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 10
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 11
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 12
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 13
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 14
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 15
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 16
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 17
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 18
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 19
+    },
+    {
+      "name": "asd",
+      "email": "fff",
+      "phone": "23233",
+      "message": "asdasdsdsd",
+      "id": 20
+    }
+  ]
+}

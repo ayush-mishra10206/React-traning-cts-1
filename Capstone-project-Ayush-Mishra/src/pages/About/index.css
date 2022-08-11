@@ -1,0 +1,27 @@
+
+
+
+.about-image{
+    width: 100%;
+  margin-top: -10vh;
+  height: 50vh;
+  object-fit: cover;
+  position: relative;
+  z-index: -10;
+}
+
+.aboutUsTitle{
+    color: white;
+    position: absolute;
+    top: 20%;
+    margin-left: 10%;
+    font-size: 30px;
+    font-style: italic;
+}
+
+.aboutUsDescp{
+    padding: 4% 10% 0 10% ;
+    font-size: 15px;
+    letter-spacing: 1.2;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}

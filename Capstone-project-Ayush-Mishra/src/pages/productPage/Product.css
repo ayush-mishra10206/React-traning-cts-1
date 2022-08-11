@@ -1,0 +1,15 @@
+
+
+
+.cardDiv{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+}
+
+@media screen and (max-width: 616px) {
+    .cardDiv{
+        display: flex;
+        flex-direction: column;
+    }
+}

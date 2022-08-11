@@ -1,0 +1,16 @@
+
+
+
+.filterOuterDiv{
+    padding-left: 40%;
+}
+
+.buttonCategory{
+    padding: 2%;
+    border-radius: 4px;
+    color: black;
+}
+.buttonCategory:hover{
+    background-color: red;
+    color: white;
+}

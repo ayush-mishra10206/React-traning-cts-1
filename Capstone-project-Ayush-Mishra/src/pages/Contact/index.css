@@ -1,0 +1,68 @@
+
+
+.contact-image{
+    width: 100%;
+  margin-top: -10vh;
+  height: 50vh;
+  object-fit: cover;
+  position: relative;
+  z-index: -10;
+}
+
+.bottomDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2% 3% 0 3%;
+}
+
+.titleContact{
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+.titleData{
+    font-weight: bold;
+}
+.getInTouchDiv{
+    display: flex;
+    flex-direction: column;
+    padding: 3% 0 4% 5%;
+    width: 55%;
+}
+
+.getInTouchInput{
+    width: 75%;
+    margin-top: 3%;
+}
+
+.getInTouchTitle{
+    margin-left: 20%;
+    color:red;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.getInTouchSubmit{
+    background-color: red;
+    color: white;
+    width: 9%;
+    padding: 1%;
+    margin-left: 20%;
+    margin-top: 3%;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+
+.getInTouchDivOuterDiv{
+    display: flex;
+    flex-direction: row;
+}
+
+.getInTouchImage{
+    padding-top: 10%;
+}
+.iconContact{
+    text-align: center;
+}

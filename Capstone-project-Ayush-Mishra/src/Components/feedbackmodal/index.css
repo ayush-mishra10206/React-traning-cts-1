@@ -1,0 +1,66 @@
+
+
+.feedBackOuterDiv{
+    position: absolute;
+    width:70%;
+    border: 1px solid black;
+    top: 10%;
+    left:20%;
+    background-color: white;
+}
+
+.feedBackTitle{
+    padding: 1.5%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    color: white;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    justify-content: space-between;
+}
+.inputOuterDiv{
+    margin: 3%;
+}
+
+.topInputField{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.inputField{
+    width: 40%;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 26px;
+    padding: 4px;
+}
+.bottomBtn{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: 40%;
+}
+
+.Btn{
+    color: white;
+    letter-spacing: 2px;
+    padding:6%;
+    border-radius: 5px;
+    background-color: red;
+}
+
+.closeIcon{
+    color: white;
+}
+
+@media screen and (max-width: 616px) {
+    .bottomBtn{
+        display: flex;
+        justify-content: space-between;
+        width: 40%;
+        margin-left: 35%;
+    }
+}

@@ -1,0 +1,46 @@
+
+
+.ratingOuterDiv{
+    width:20%;
+    position: absolute;
+    border: 1px solid black;
+    top: 10%;
+    left:40%;
+    height: 30%;
+    background-color: white;
+}
+
+.ratingHeader{
+    color: white;
+    padding: 2%;
+    background-color: red;
+}
+.emojiDiv{
+    padding: 10%;
+    margin-left: 10%;
+}
+
+.emoji{
+    font-size: 20px;
+}
+
+.feedbackSubmitButton{
+    color: white;
+    letter-spacing: 2px;
+    padding:3%;
+    border-radius: 5px;
+    background-color: red;
+    margin-left: 40%;
+}
+
+@media screen and (max-width: 616px) {
+    .ratingOuterDiv{
+        width:40%;
+        position: absolute;
+        border: 1px solid black;
+        top: 10%;
+        left:40%;
+        height: 34%;
+        background-color: white;
+    }
+}
